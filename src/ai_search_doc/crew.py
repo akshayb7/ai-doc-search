@@ -2,7 +2,12 @@ from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import ScrapeWebsiteTool
 
-llm = LLM(model="azure/gpt-4o", api_version="2024-08-01-preview")
+llm = LLM(
+    model="azure/gpt-4o",
+    api_version="2024-08-01-preview",
+    endpoint="https://<your-endpoint>.openai.azure.com/",
+    api_key="<your-api-key>"
+)
 
 
 @CrewBase
