@@ -18,9 +18,9 @@ def run():
     Run the crew.
     """
     parser = argparse.ArgumentParser(description="Run the AiSearchDoc crew.")
-    parser.add_argument("--customer", type=string, required=True, help="Customer name")
-    parser.add_argument("--person", type=string, required=True, help="Person name")
-    parser.add_argument("--inquiry", type=string, required=True, help="Inquiry text")
+    parser.add_argument("--customer", type=str, required=True, help="Customer name")
+    parser.add_argument("--person", type=str, required=True, help="Person name")
+    parser.add_argument("--inquiry", type=str, required=True, help="Inquiry text")
     args = parser.parse_args()
 
     inputs = {
