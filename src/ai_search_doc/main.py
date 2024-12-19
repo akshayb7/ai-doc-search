@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys
 import warnings
+import argparse
 
 from ai_search_doc.crew import AiSearchDoc
 
@@ -16,10 +17,15 @@ def run():
     """
     Run the crew.
     """
+    parser = argparse.ArgumentParser(description="Run the AiSearchDoc crew.")
+    parser.add_argument("--customer", type=string, required=True, help="Customer name")
+    parser.add_argument("--person", type=string, required=True, help="Person name")
+    parser.add_argument("--inquiry", type=string, required=True, help="Inquiry text")
+    args = parser.parse_args()
+
     inputs = {
-        "customer": "DeepLearningAI",
-        "person": "Andrew Ng",
-        "inquiry": r"""I need help with setting up a MySQL database.
-        Can you provide guidance?""",
+        "customer": args.customer,
+        "person": args.person,
+        "inquiry": args.inquiry,
     }
     AiSearchDoc().crew().kickoff(inputs=inputs)
