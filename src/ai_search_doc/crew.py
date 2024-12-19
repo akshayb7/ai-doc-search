@@ -1,13 +1,9 @@
-from crewai import Agent, Crew, Process, Task, LLM
+from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import ScrapeWebsiteTool
+from dotenv import load_dotenv
 
-llm = LLM(
-    model="azure/gpt-4o",
-    api_version="2024-08-01-preview",
-    endpoint="https://<your-endpoint>.openai.azure.com/",
-    api_key="<your-api-key>"
-)
+load_dotenv()
 
 
 @CrewBase
@@ -22,7 +18,6 @@ class AiSearchDoc:
         return Agent(
             config=self.agents_config["support_agent"],
             allow_delegation=False,
-            llm=llm,
             tools=[ScrapeWebsiteTool()],
             verbose=True,
         )
@@ -32,7 +27,6 @@ class AiSearchDoc:
         return Agent(
             config=self.agents_config["support_quality_assurance_agent"],
             allow_delegation=True,
-            llm=llm,
             verbose=True,
         )
 

@@ -1,6 +1,6 @@
 support_agent:
   role: >
-    {topic} Senior Support Representative
+    Senior Support Representative
   goal: >
     Be the most helpful and knowledgable support representative
   backstory: >
